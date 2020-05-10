@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Practice 1 - Blog</title>
+    <img height='150 px'
+        src="https://img.4gamers.com.tw/ckfinder/image2/auto/2019-02/51588501_1726595684153649_5047418602454515712_o-190209-151935.jpg?versionId=YVQPrngqBy7GK3fzEFYf4Fy0u_U5r8oc"
+        alt="">
 </head>
+
 <body>
     <h1>歡迎光臨我的部落格</h1>
     <hr>
-    {{posts}}
+    {% for post in posts %}
+    <p style='font-family: 微軟正黑體'>貼文發布於:{{post.pub_date}}</p>
+
+    <p style='font-family: 微軟正黑體;font-size:16pt;font-weight:bold;'>
+        <a href="/post/{{post.slug}}"> {{post.title}} </a>
+    </p>
+
+    <p style='font-family: 微軟正黑體;font-size:10pt;letter-spacing:1pt;'>
+        {{post.body}}
+    </p>
+
     <hr>
+    {% endfor %}
     <h3>現在時間：{{now}}</h3>
 </body>
+
 </html>
